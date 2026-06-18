@@ -55,25 +55,30 @@
   <!-- =====================================================
        HEADER
        ===================================================== -->
-  <header class="nav-header" id="mainHeader">
-    <div class="top-social-bar py-3 px-6 lg:px-8" id="topBar">
-      <div class="max-w-[104%] mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-4" id="headerSocial"></div>
-        <div class="hamburger lg:flex" id="hamburgerBtn" onclick="toggleMobileMenu()">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    </div>
+    <header class="nav-header" id="mainHeader">
     <nav class="py-5 px-6 lg:px-8" id="mainNav">
-      <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <ul class="hidden lg:flex items-center gap-8 desktop-nav" id="navLeft"></ul>
+      <div class="max-w-7xl mx-auto flex items-center justify-between w-full">
+        
+        <!-- Left Side: Social Icons & Left Menu -->
+        <div class="flex items-center gap-8">
+          <div class="hidden lg:flex items-center gap-4" id="headerSocial"></div>
+          <ul class="hidden lg:flex items-center gap-8 desktop-nav" id="navLeft"></ul>
+        </div>
+
+        <!-- Logo (center) -->
         <a href="index.html" class="flex-shrink-0 mx-8" id="navLogo">
           <img src="images/logo.png" alt="Bidar Chess Association" class="w-[120px] h-[120px] object-contain" />
         </a>
-        <ul class="hidden lg:flex items-center gap-8 desktop-nav" id="navRight"></ul>
-        <button class="lg:hidden text-white text-2xl" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-          <i class="fas fa-bars"></i>
-        </button>
+
+        <!-- Right Side: Right Menu & Hamburger -->
+        <div class="flex items-center gap-8">
+          <ul class="hidden lg:flex items-center gap-8 desktop-nav" id="navRight"></ul>
+          <!-- Mobile hamburger -->
+          <button class="lg:hidden text-white text-2xl" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
       </div>
     </nav>
   </header>
@@ -295,16 +300,13 @@
     })();
 
     // ── Header Scroll Effect ────────────────────────
-    (function setupHeaderScroll() {
+        (function setupHeaderScroll() {
       const header = document.getElementById('mainHeader');
-      const topBar = document.getElementById('topBar');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
           header.classList.add('scrolled');
-          topBar.style.display = 'none';
         } else {
           header.classList.remove('scrolled');
-          topBar.style.display = '';
         }
       });
     })();
@@ -312,3 +314,4 @@
 
 </body>
 </html>
+
