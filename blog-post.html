@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Blog Post - Bidar Chess Association</title>
+  <meta name="description" content="Read the latest news and insights from the Bidar Chess Association." />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+  <!-- Google Fonts: Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+          },
+          colors: {
+            dark: '#212326',
+            light: '#E2D8DA',
+            accent: '#af7d51',
+            bodyBg: '#E9EAEF',
+            gray1: '#434549',
+            footerBg: '#1a1c1f',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .inner-header {
+      background: linear-gradient(rgba(33, 35, 38, 0.85), rgba(33, 35, 38, 0.85)), url('images/hero/slide4.png') no-repeat center center/cover;
+      padding-top: 190px;
+      padding-bottom: 90px;
+      text-align: center;
+      color: #fff;
+      transition: background 0.5s ease-in-out;
+    }
+    
+    /* Premium Dropcap on the first paragraph */
+    #postBody p:first-of-type::first-letter {
+      font-size: 3.5rem;
+      font-weight: 700;
+      float: left;
+      line-height: 1;
+      margin-right: 0.6rem;
+      margin-top: 0.25rem;
+      color: var(--color-accent);
+      font-family: 'Sora', sans-serif;
+    }
+
+    /* Sidebar cards */
+    .sidebar-recent-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .sidebar-recent-card:hover .title-link {
+      color: var(--color-accent);
+    }
+    .sidebar-recent-card img {
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    .sidebar-recent-card:hover img {
+      transform: scale(1.04);
+    }
+  </style>
+</head>
+<body class="font-sora">
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+  <header class="nav-header" id="mainHeader">
+    <div class="top-social-bar py-3 px-6 lg:px-8" id="topBar">
+      <div class="max-w-[104%] mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-4" id="headerSocial"></div>
+        <div class="hamburger lg:flex" id="hamburgerBtn" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <nav class="py-5 px-6 lg:px-8" id="mainNav">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <ul class="hidden lg:flex items-center gap-8 desktop-nav" id="navLeft"></ul>
+        <a href="index.html" class="flex-shrink-0 mx-8" id="navLogo">
+          <img src="images/logo.png" alt="Bidar Chess Association" class="w-[120px] h-[120px] object-contain" />
+        </a>
+        <ul class="hidden lg:flex items-center gap-8 desktop-nav" id="navRight"></ul>
+        <button class="lg:hidden text-white text-2xl" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu"></div>
+
+  <!-- =====================================================
+       INNER HEADER (Post Banner)
+       ===================================================== -->
+  <div class="inner-header" id="postHeaderBanner">
+    <div class="max-w-7xl mx-auto px-6 animate-fadeInUp">
+      <!-- Breadcrumbs -->
+      <div class="flex items-center justify-center gap-2 text-xs md:text-sm text-gray-300 mb-4 font-semibold uppercase tracking-wider">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+        <span>/</span>
+        <span class="text-accent" id="breadcrumbPostTitle">Loading...</span>
+      </div>
+      <!-- Category Badge -->
+      <span class="inline-block bg-accent text-white text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4" id="postCategoryBadge">Category</span>
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-white drop-shadow-md" id="postTitle">Loading Post Title...</h1>
+      <p class="text-xs md:text-sm text-gray-300 font-semibold" id="postDate"><i class="far fa-calendar-alt mr-2"></i>Loading Date...</p>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BLOG CONTENT
+       ===================================================== -->
+  <section class="py-16 md:py-24" style="background-color: var(--color-body-bg);">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Container for Content + Sidebar -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12" id="postContentContainer">
+        
+        <!-- Main Article Column (2/3 width) -->
+        <div class="lg:col-span-2">
+          <article class="bg-white p-6 md:p-10 rounded-xl shadow-md border border-gray-100 overflow-hidden">
+            
+            <!-- Featured Image -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg mb-8 max-h-[480px] group">
+              <img id="postFeaturedImage" src="" alt="Featured Image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+
+            <!-- Post Text Content -->
+            <div id="postBody" class="prose max-w-none text-gray-700 leading-relaxed space-y-6 text-[15px] md:text-[16px]">
+              <!-- Paragraphs will be injected here dynamically -->
+            </div>
+            
+            <!-- Share block & Tags -->
+            <div class="border-t border-gray-100 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-semibold text-gray-500">Tags:</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded font-medium">Chess</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded font-medium">Bidar</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded font-medium">BCA</span>
+              </div>
+              
+              <div class="flex items-center gap-3">
+                <span class="text-sm font-semibold text-gray-500">Share Post:</span>
+                <button onclick="sharePost('facebook')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-dark hover:text-white flex items-center justify-center text-gray-600 transition-all" aria-label="Share on Facebook">
+                  <i class="fab fa-facebook-f text-xs"></i>
+                </button>
+                <button onclick="sharePost('twitter')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-dark hover:text-white flex items-center justify-center text-gray-600 transition-all" aria-label="Share on X">
+                  <i class="fab fa-x-twitter text-xs"></i>
+                </button>
+                <button onclick="sharePost('whatsapp')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-dark hover:text-white flex items-center justify-center text-gray-600 transition-all" aria-label="Share on WhatsApp">
+                  <i class="fab fa-whatsapp text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sidebar Column (1/3 width) -->
+        <div class="space-y-8">
+          
+          <!-- Recent Posts Widget -->
+          <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+            <h3 class="text-lg font-bold mb-4 pb-2 border-b-2 border-accent">Recent Posts</h3>
+            <div class="space-y-4" id="sidebarRecentPosts">
+              <!-- Dynamically populated recent posts list -->
+            </div>
+          </div>
+          
+          <!-- Quick Links Widget -->
+          <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+            <h3 class="text-lg font-bold mb-4 pb-2 border-b-2 border-accent">Explore BCA</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="about.html" class="flex items-center justify-between text-sm text-gray-600 hover:text-accent font-semibold transition-colors">
+                  <span>About Bidar Chess Association</span>
+                  <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li>
+                <a href="event.html" class="flex items-center justify-between text-sm text-gray-600 hover:text-accent font-semibold transition-colors">
+                  <span>Upcoming Chess Events</span>
+                  <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li>
+                <a href="gallery.html" class="flex items-center justify-between text-sm text-gray-600 hover:text-accent font-semibold transition-colors">
+                  <span>Photo Gallery</span>
+                  <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li>
+                <a href="contact.html" class="flex items-center justify-between text-sm text-gray-600 hover:text-accent font-semibold transition-colors">
+                  <span>Contact & Registrations</span>
+                  <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CTA Card Widget -->
+          <div class="relative bg-dark text-white p-8 rounded-xl overflow-hidden shadow-lg group">
+            <div class="absolute inset-0 bg-cover bg-center opacity-10 group-hover:scale-105 transition-transform duration-700" style="background-image: url('images/hero/slide2.jpg');"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/95 to-transparent"></div>
+            <div class="relative z-10 text-center">
+              <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-2">Want to learn chess?</h4>
+              <h3 class="text-2xl font-bold mb-4 leading-snug">Empower Your Child's Future Today</h3>
+              <p class="text-gray-400 text-xs leading-relaxed mb-6">Learn chess from expert international FIDE rated coaches at Bidar Chess Association. Programs available for all skill levels.</p>
+              <a href="contact.html" class="btn-outline btn-outline-white text-xs inline-flex group">
+                Join Now <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Error / Fallback Card (Post Not Found) -->
+      <div id="notFoundContainer" class="hidden text-center py-20 max-w-2xl mx-auto bg-white p-12 rounded-xl shadow-md border border-gray-100">
+        <div class="w-20 h-20 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h2 class="text-3xl font-extrabold text-dark mb-4">Post Not Found</h2>
+        <p class="text-gray-600 mb-8">We are sorry, but the blog post you are looking for does not exist or has been moved.</p>
+        <a href="blog.html" class="btn-outline group">
+          Back to Blogs <span class="ml-2 group-hover:-translate-x-1 transition-transform">←</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="bg-dark text-white pt-16 pb-8" id="siteFooter">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div id="footerCol1"></div>
+        <div id="footerCol2"></div>
+        <div id="footerCol3"></div>
+      </div>
+      <div class="border-t border-gray-700 pt-6 text-center text-sm text-gray-400" id="copyrightBar"></div>
+    </div>
+  </footer>
+
+  <!-- Floating Elements -->
+  <a class="whatsapp-btn" id="whatsappBtn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.502 1.14 6.742 3.072 9.376L1.062 31.13l5.97-1.972A15.93 15.93 0 0016.004 32C24.826 32 32 24.824 32 16.004 32 7.176 24.826 0 16.004 0zm9.32 22.616c-.392 1.098-1.936 2.01-3.156 2.276-.836.178-1.928.32-5.606-1.204-4.704-1.95-7.73-6.726-7.966-7.038-.226-.312-1.9-2.534-1.9-4.832 0-2.298 1.2-3.43 1.628-3.898.392-.428 1.018-.606 1.614-.606.196 0 .372.01.53.018.468.02.702.048 1.012.784.388.922 1.332 3.252 1.448 3.49.118.24.236.556.078.868-.148.32-.278.52-.518.798-.24.278-.494.62-.706.832-.24.24-.49.502-.21.984.278.482 1.238 2.042 2.66 3.31 1.826 1.63 3.364 2.136 3.842 2.374.478.238.758.198 1.036-.118.278-.318 1.198-1.396 1.516-1.874.318-.478.636-.398 1.074-.238.44.158 2.784 1.314 3.262 1.552.478.24.796.356.914.556.116.198.116 1.156-.276 2.266z"/></svg>
+  </a>
+  <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="content.js"></script>
+  <script>
+    const arrow = () => '<span class="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>';
+
+    // Highlight current page in nav
+    const currentPath = 'blog.html'; // Set to blog.html since this is a detail page of the blog
+
+    (function buildHeaderSocial() {
+      const el = document.getElementById('headerSocial');
+      const icons = [
+        { icon: 'fa-brands fa-facebook-f', href: CONTENT.social.facebook, label: 'Facebook' },
+        { icon: 'fa-brands fa-x-twitter', href: CONTENT.social.twitter, label: 'X' },
+        { icon: 'fa-brands fa-instagram', href: CONTENT.social.instagram, label: 'Instagram' },
+      ];
+      el.innerHTML = icons.map(i =>
+        `<a href="${i.href}" target="_blank" rel="noopener noreferrer" class="text-white text-sm hover:text-gray-300 transition-colors" aria-label="${i.label}"><i class="${i.icon}"></i></a>`
+      ).join('');
+    })();
+
+    (function buildNav() {
+      const left = document.getElementById('navLeft');
+      const right = document.getElementById('navRight');
+
+      left.innerHTML = CONTENT.nav.left.map(item => {
+        const isActive = item.href === currentPath;
+        if (item.submenu) {
+          return `<li class="nav-item relative">
+            <a href="${item.href}" class="nav-link ${isActive ? 'active' : ''}">${item.label} <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+            <div class="nav-dropdown">
+              ${item.submenu.map(s => `<a href="${s.href}">${s.label}</a>`).join('')}
+            </div>
+          </li>`;
+        }
+        return `<li class="nav-item"><a href="${item.href}" class="nav-link ${isActive ? 'active' : ''}">${item.label}</a></li>`;
+      }).join('');
+
+      right.innerHTML = CONTENT.nav.right.map(item => {
+        const isActive = item.href === currentPath;
+        return `<li class="nav-item"><a href="${item.href}" class="nav-link ${isActive ? 'active' : ''}">${item.label}</a></li>`;
+      }).join('');
+
+      const logo = document.getElementById('navLogo');
+      logo.href = CONTENT.nav.logo.href;
+      logo.querySelector('img').src = CONTENT.nav.logo.src;
+      logo.querySelector('img').alt = CONTENT.nav.logo.alt;
+    })();
+
+    (function buildMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const allItems = [...CONTENT.nav.left, ...CONTENT.nav.right];
+      menu.innerHTML = allItems.map(item => {
+        let html = `<a href="${item.href}">${item.label}</a>`;
+        if (item.submenu) {
+          html += item.submenu.map(s => `<a href="${s.href}" class="pl-12 text-sm text-gray-400">${s.label}</a>`).join('');
+        }
+        return html;
+      }).join('');
+    })();
+
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Dynamic Post Loader Logic
+    (function loadBlogPost() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const idParam = urlParams.get('id');
+      const postId = parseInt(idParam, 10);
+
+      const post = CONTENT.news.posts.find(p => p.id === postId);
+
+      if (idParam !== null && !isNaN(postId) && post) {
+        // 1. Dynamic Meta details
+        document.title = `${post.title} - Bidar Chess Association`;
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+          metaDesc = document.createElement('meta');
+          metaDesc.setAttribute('name', 'description');
+          document.head.appendChild(metaDesc);
+        }
+        metaDesc.setAttribute('content', post.content[0].substring(0, 155) + '...');
+
+        // 2. Dynamic Headers
+        document.getElementById('breadcrumbPostTitle').textContent = post.title.length > 25 ? post.title.substring(0, 25) + '...' : post.title;
+        document.getElementById('postCategoryBadge').textContent = post.category || 'News';
+        document.getElementById('postTitle').textContent = post.title;
+        document.getElementById('postDate').innerHTML = `<i class="far fa-calendar-alt mr-2"></i>${post.date}`;
+        
+        // Featured Image
+        const featuredImg = document.getElementById('postFeaturedImage');
+        featuredImg.src = post.image;
+        featuredImg.alt = post.title;
+
+        // Header Background Banner
+        const banner = document.getElementById('postHeaderBanner');
+        banner.style.background = `linear-gradient(rgba(33, 35, 38, 0.85), rgba(33, 35, 38, 0.85)), url('${post.image}') no-repeat center center/cover`;
+
+        // 3. Post Paragraphs
+        const bodyContainer = document.getElementById('postBody');
+        bodyContainer.innerHTML = post.content.map(para => `<p>${para}</p>`).join('');
+
+        // 4. Sidebar Recent Posts Widget (excluding current post)
+        const recentContainer = document.getElementById('sidebarRecentPosts');
+        const otherPosts = CONTENT.news.posts.filter(p => p.id !== postId);
+        recentContainer.innerHTML = otherPosts.map(p => `
+          <a href="${p.href}" class="sidebar-recent-card group block">
+            <img src="${p.image}" alt="${p.title}" />
+            <div class="flex-1 min-w-0">
+              <span class="text-[10px] font-bold text-accent uppercase tracking-wider block mb-0.5">${p.category || 'News'}</span>
+              <h4 class="title-link text-[13px] font-bold text-dark leading-snug line-clamp-2 transition-colors">${p.title}</h4>
+              <span class="text-[10px] text-gray-400 mt-1 block">${p.date}</span>
+            </div>
+          </a>
+        `).join('');
+
+        // Display contents
+        document.getElementById('postContentContainer').classList.remove('hidden');
+        document.getElementById('notFoundContainer').classList.add('hidden');
+      } else {
+        // Post Not Found handling
+        document.title = "Post Not Found - Bidar Chess Association";
+        document.getElementById('breadcrumbPostTitle').textContent = "Not Found";
+        document.getElementById('postCategoryBadge').style.display = 'none';
+        document.getElementById('postTitle').textContent = "Article Not Found";
+        document.getElementById('postDate').style.display = 'none';
+
+        document.getElementById('postContentContainer').classList.add('hidden');
+        document.getElementById('notFoundContainer').classList.remove('hidden');
+      }
+    })();
+
+    // Sharing functions
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.getElementById('postTitle').textContent);
+      let shareUrl = '#';
+
+      if (platform === 'facebook') {
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      } else if (platform === 'twitter') {
+        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+      } else if (platform === 'whatsapp') {
+        shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+      }
+
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+
+    (function buildFooter() {
+      document.getElementById('footerCol1').innerHTML = `
+        <div class="flex flex-col items-center lg:items-start">
+          <img src="${CONTENT.footer.logo.src}" alt="${CONTENT.footer.logo.alt}" class="w-56 mb-6" />
+          <p class="text-gray-400 text-sm leading-relaxed text-center lg:text-left">${CONTENT.footer.description}</p>
+        </div>
+      `;
+
+      const ql = CONTENT.footer.quickLinks;
+      document.getElementById('footerCol2').innerHTML = `
+        <div>
+          <h3 class="text-xl font-bold mb-2">${ql.heading}</h3>
+          <div class="footer-dotted-line"></div>
+          <div class="grid grid-cols-2 gap-x-8 gap-y-4">
+            <div class="space-y-4">
+              ${ql.left.map(l => `<a href="${l.href}" class="block text-gray-400 text-sm hover:text-white transition-colors">${l.label}</a>`).join('')}
+            </div>
+            <div class="space-y-4">
+              ${ql.right.map(l => `<a href="${l.href}" class="block text-gray-400 text-sm hover:text-white transition-colors">${l.label}</a>`).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      const c = CONTENT.footer.contacts;
+      const sm = CONTENT.footer.socialMedia;
+      document.getElementById('footerCol3').innerHTML = `
+        <div>
+          <h3 class="text-xl font-bold mb-2">${c.heading}</h3>
+          <div class="footer-dotted-line"></div>
+          <div class="space-y-4 text-sm text-gray-400">
+            <div class="flex gap-3">
+              <i class="fas fa-map-marker-alt text-white mt-1"></i>
+              <span>${c.address.replace(/\n/g, '<br/>')}</span>
+            </div>
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-mobile-alt text-white"></i>
+              <a href="tel:${c.phone.replace(/\s/g, '')}" class="hover:text-white transition-colors">${c.phone}</a>
+            </div>
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-white"></i>
+              <a href="mailto:${c.email}" class="hover:text-white transition-colors">${c.email}</a>
+            </div>
+          </div>
+          <h4 class="text-lg font-bold mt-8 mb-2">${sm.heading}</h4>
+          <div class="footer-dotted-line"></div>
+          <div class="flex gap-4 text-white text-lg">
+            <a href="${sm.facebook}" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="${sm.twitter}" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition-colors" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="${sm.instagram}" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      `;
+      document.getElementById('copyrightBar').textContent = CONTENT.copyright;
+    })();
+
+    (function setupWhatsApp() {
+      const btn = document.getElementById('whatsappBtn');
+      btn.href = `https://wa.me/${CONTENT.whatsapp.number}?text=${encodeURIComponent(CONTENT.whatsapp.message)}`;
+    })();
+
+    (function setupScrollTop() {
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+    })();
+
+    (function setupHeaderScroll() {
+      const header = document.getElementById('mainHeader');
+      const topBar = document.getElementById('topBar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+          topBar.style.display = 'none';
+        } else {
+          header.classList.remove('scrolled');
+          topBar.style.display = '';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
