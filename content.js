@@ -91,6 +91,30 @@ const CONTENT = {
       { name: "Satish Kumar Swamy", role: "Secretary", image: "images/team/Satish-Kumar.png" },
       { name: "Dr. Mallikarjun Chatnalli", role: "Vice President", image: "images/team/Mallikarjun.png" },
     ],
+    honorary: [
+      { name: "Nitin Karpoor", role: "President", image: "images/team/Nitin_karpoor.png" },
+      { name: "Satish Kumar Swamy", role: "Secretary", image: "images/team/Satish-Kumar.png" },
+      { name: "Dr. Mallikarjun Chatnalli", role: "Vice President", image: "images/team/Mallikarjun.png" },
+      { name: "Vikram Tagare", role: "Joint Secretary", image: "images/team/Vikram.png" },
+      { name: "Adv Sidrameshwar Shetkar", role: "Treasurer", image: "images/team/Adv Sidrameshwar.png" }
+    ],
+    committee: [
+      { name: "Shivani Vikram Tagare", role: "", image: "images/team/Shivani.png" },
+      { name: "Shivakumar", role: "", image: "images/team/Shivakumar.png" },
+      { name: "Vijay Kumar Biradar", role: "", image: "images/team/Vijay Kumar.png" },
+      { name: "Suresh Kumar Biradar", role: "", image: "images/team/Suresh.png" },
+      { name: "Prabhu Tatapatti", role: "", image: "images/team/Prabhu.png" },
+      { name: "Gajanan D. Pokalwar", role: "", image: "images/team/Gajanan.png" },
+      { name: "Nitin Goyal", role: "", image: "images/team/Nitin Goyal.png" },
+      { name: "Roopali Nitin Karpoor", role: "", image: "images/team/Roopali.png" },
+      { name: "Anuradha Prabhu Tatapatti", role: "", image: "images/team/Anuradha.png" },
+      { name: "Gopalakrishna", role: "", image: "images/team/Gopalakrishna.png" },
+      { name: "Trishala Shetkar", role: "", image: "images/team/Trishala.png" },
+      { name: "Dr. Shruthi Vijayakumar Biradar", role: "", image: "images/team/Dr. Shruthi.png" },
+      { name: "Shruti Gajanan Pokalwar", role: "", image: "images/team/Shruti.png" },
+      { name: "Basavanjali Mallikarjun Chatnalli", role: "", image: "images/team/Basavanjali.png" },
+      { name: "Annapurna Satish Kumar Swamy", role: "", image: "images/team/Annapurna.png" }
+    ],
     cta: { text: "View More", href: "about.html" },
   },
 
