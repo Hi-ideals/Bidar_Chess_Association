@@ -652,6 +652,11 @@ body {
 .top-social-bar {
   background: var(--color-dark);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.nav-header.scrolled .top-social-bar {
+  display: none !important;
 }
 
 /* ── Footer ─────────────────────────────────────────────────── */

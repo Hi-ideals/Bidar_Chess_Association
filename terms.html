@@ -64,12 +64,17 @@
        HEADER
        ===================================================== -->
     <header class="nav-header" id="mainHeader">
+    <!-- Top Bar with social links, only visible on desktop and hidden on scroll -->
+    <div class="hidden lg:block top-social-bar py-3 px-6 lg:px-8" id="topBar">
+      <div class="max-w-7xl mx-auto flex items-center justify-start">
+        <div class="flex items-center gap-4" id="headerSocial"></div>
+      </div>
+    </div>
     <nav class="py-5 px-6 lg:px-8" id="mainNav">
       <div class="max-w-7xl mx-auto flex items-center justify-between w-full">
         
-        <!-- Left Side: Social Icons & Left Menu -->
+        <!-- Left Side: Left Menu (No Social Icons) -->
         <div class="flex items-center gap-8">
-          <div class="hidden lg:flex items-center gap-4" id="headerSocial"></div>
           <ul class="hidden lg:flex items-center gap-8 desktop-nav" id="navLeft"></ul>
         </div>
 
