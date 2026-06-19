@@ -52,7 +52,7 @@ const CONTENT = {
       "images/hero/slide1.jpg",
     ],
     
-    heading: "Welcome to Bidar Chess Associations",
+    heading: "Welcome to Bidar Chess Association",
     description: "Empowering minds, building analytical skills, and cultivating the grandmasters of tomorrow through the game of chess.",
     cta: { text: "Learn More", href: "about.html" },
   },
